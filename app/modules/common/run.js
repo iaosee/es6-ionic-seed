@@ -3,6 +3,9 @@
 routerConfig.$inject = ['$ionicPlatform'];
 
 export default function routerConfig($ionicPlatform) {
+
+    console.log('app running.')
+
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)

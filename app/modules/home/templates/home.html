@@ -1,0 +1,56 @@
+<ion-view view-title="Playlists">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+        {{playlist.title}}
+      </ion-item>
+
+      <h4>Use webpack build ionic mobile application.</h4>
+
+      <h1>Hello Angular, Ionic</h1>
+
+      <h2 ng-bind="home.controller"></h2>
+
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="What's your name?" ng-model="home.name">
+        </label>
+        <div class="item text-center" ng-if="home.name">
+          <p>Hello
+            <span ng-bind="home.name"></span>
+          </p>
+        </div>
+      </div>
+
+      <div class="my-box">
+        <div class="inner-box"></div>
+      </div>
+
+
+      <div>
+        <button class="button button-outline button-positive" ng-click="home.sayHello()">
+         click me say hello
+      </button>
+      </div>
+
+      <div>
+        <button class="button">
+          <i class="icon ion-loading-c"></i> Loading...
+        </button>
+      </div>
+
+      <div>
+        <button class="button icon-left ion-home">Home</button>
+      </div>
+
+      <div>
+        <button class="button icon-left ion-star button-positive">Favorites</button>
+      </div>
+
+      <div>
+        <a class="button icon-right ion-chevron-right button-calm">Learn More</a>
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

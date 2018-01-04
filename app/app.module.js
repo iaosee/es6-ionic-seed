@@ -1,15 +1,16 @@
 import commonModule from "./modules/common/common.module";
+import globalModule from "./modules/global/global.module";
+import homeModule   from "./modules/home/home.module";
 
-
-// import './vendor/ionic/css/ionic.css';
-// import './vendor/swiper/css/swiper.css';
 import './style/app.scss';
 
 console.log(commonModule);
+console.log(globalModule);
+console.log(homeModule);
 
 angular.module('app', [
-    'ionic',
-    commonModule,
-
+  'ionic',
+  commonModule,
+  globalModule,
+  homeModule,
 ]);
-

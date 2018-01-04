@@ -7,32 +7,33 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ROOT_PATH = __dirname;
 const PATHS = {
 	src: ROOT_PATH + '/app',
-	build: ROOT_PATH + '/build/',
+	build: ROOT_PATH + '/build',
 	vendor: ROOT_PATH + '/app/vendor',
 };
 
 let isProd = !!process.env.NODE_ENV;
 
 let plugins = renderPlugins();
-// isProd && plugins.push(new webpack.optimize.UglifyJsPlugin());
+isProd && plugins.push(new webpack.optimize.UglifyJsPlugin());
+!isProd && plugins.push(new webpack.HotModuleReplacementPlugin());
 
 module.exports = {
-	// devtool: isProd ? false : 'source-map',
-	devtool: 'source-map',
+	// devtool: 'source-map',
+	devtool: isProd ? false : 'source-map',
 
 	entry: {
 		app: PATHS.src + '/app.module.js',
-		vendor: [
-			PATHS.vendor + '/ionic/js/ionic.bundle.js', 
+		vendor_js: [
+			PATHS.vendor + '/ionic/js/ionic.bundle.js',
 			PATHS.vendor + '/swiper/js/swiper.js',
 
 			// PATHS.vendor + '/ionic/css/ionic.css',
 			// PATHS.vendor + '/swiper/css/swiper.css',
-    ],
-    vendor_css: [
+		],
+		vendor_css: [
 			PATHS.vendor + '/ionic/css/ionic.css',
 			PATHS.vendor + '/swiper/css/swiper.css',
-    ]
+		]
 	},
 
 	output: {
@@ -59,8 +60,8 @@ module.exports = {
 					}
 				]
 			},
-			{ 
-				test: /\.js[x]?$/, 
+			{
+				test: /\.js[x]?$/,
 				use: {
 					loader: 'babel-loader',
 					options: { presets: ["latest", "stage-2"], plugins: ['transform-runtime'] },
@@ -79,13 +80,13 @@ module.exports = {
 					},
 					{
 						loader: "postcss-loader",
-					} 
-				] 
+					}
+				]
 			},
 			{
 				test: /\.s[c|a]ss/,
-				use: isProd 
-					? ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader'] }) 
+				use: isProd
+					? ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader'] })
 					: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 			{
@@ -98,13 +99,19 @@ module.exports = {
 					{
 						loader: 'image-webpack-loader',
 						options: { bypassOnDebug: true },
+					},
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 8192
+						}
 					}
 				],
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2)\w*/,
-        loader: 'file-loader',
-        options: { name: '[name].[hash].[ext]', outputPath: 'fonts/' },
+				loader: 'file-loader',
+				options: { name: '[name].[hash].[ext]', outputPath: 'fonts/' },
 			}
 		]
 	},
@@ -118,14 +125,14 @@ function renderPlugins() {
 	return [
 		new webpack.BannerPlugin(' author: @xaoise \r\n date: ' + (new Date).getTime() + '\r\n url: www.baidu.com'),
 		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin(),    //热加载插件
 		new webpack.optimize.OccurrenceOrderPlugin(),
+		// new webpack.HotModuleReplacementPlugin(),    //热加载插件
 		// new webpack.optimize.UglifyJsPlugin(),
 		new webpack.optimize.CommonsChunkPlugin({
-			names: ['vendor', 'manifest']
+      names: ['vendor_js', 'vendor_css', 'manifest']
 		}),
 		new ExtractTextPlugin({
-			filename: 'style/[name]-[hash].css',
+			filename: 'style/[name].[hash].css',
 			disable: !isProd
 		}),
 		new HtmlWebpackPlugin({
@@ -135,7 +142,7 @@ function renderPlugins() {
 				collapseWhitespace: isProd ? true : false,
 			},
 		}),
-		new CleanWebpackPlugin(PATHS.build + '/*.*', {
+		new CleanWebpackPlugin(PATHS.build + '/*', {
 			root: ROOT_PATH,
 			verbose: true,
 			dry: false
