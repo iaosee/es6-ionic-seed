@@ -1,6 +1,7 @@
-<ion-view view-title="Playlists">
+<ion-view view-title="首页">
   <ion-content class="home">
     <ion-list>
+
       <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
         {{playlist.title}}
       </ion-item>
@@ -9,21 +10,21 @@
 
       <h1>Hello Angular, Ionic</h1>
 
-      <h2 ng-bind="home.controller"></h2>
+      <h2 ng-bind="vm.controller"></h2>
 
 
       <div class="padding">
-        
+
       </div>
 
 
       <div class="list">
         <label class="item item-input">
-          <input type="text" placeholder="What's your name?" ng-model="home.name">
+          <input type="text" placeholder="What's your name?" ng-model="vm.name">
         </label>
-        <div class="item text-center" ng-if="home.name">
+        <div class="item text-center" ng-if="vm.name">
           <p>Hello
-            <span ng-bind="home.name"></span>
+            <span ng-bind="vm.name"></span>
           </p>
         </div>
       </div>
@@ -34,7 +35,7 @@
 
 
       <div>
-        <button class="button button-outline button-positive" ng-click="home.sayHello()">
+        <button class="button button-outline button-positive" ng-click="vm.sayHello()">
          click me say hello
       </button>
       </div>

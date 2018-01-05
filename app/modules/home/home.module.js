@@ -1,8 +1,9 @@
 
-import HomeController from "./home.controller";
 import homeRouterConfig from "./home-router.config";
+import HomeController   from "./home.controller";
 
-import './home.scss';
+import "./home.html";
+import "./home.scss";
 
 let homeBanner = () => {
 

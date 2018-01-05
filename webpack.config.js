@@ -112,7 +112,11 @@ module.exports = {
 				test: /\.(eot|svg|ttf|woff|woff2)\w*/,
 				loader: 'file-loader',
 				options: { name: '[name].[hash].[ext]', outputPath: 'fonts/' },
-			}
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
 		]
 	},
 

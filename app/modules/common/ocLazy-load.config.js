@@ -9,9 +9,21 @@ export default function ocLazyLoadConfig($ocLazyLoadProvider) {
       {
         name: 'app.home',
         files: [
-          
+          'home.modules.js'
         ]
-      }
+      },
+      {
+        name: 'app.common',
+        files: [
+          'common.modules.js'
+        ]
+      },
+      {
+        name: 'app.global',
+        files: [
+          'global.modules.js'
+        ]
+      },
     ],
   });
 }

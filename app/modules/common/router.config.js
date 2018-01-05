@@ -10,8 +10,9 @@ export default function run($stateProvider, $urlRouterProvider, $locationProvide
     .state('app', {
       url: '/app',
       abstract: true,
-      template: require('../../templates/menu.html'),
-      // controller: 'AppCtrl'
+      template: require('./templates/menu.html'),
+      controller: 'CommonController',
+      controllerAs: 'vm'
     });
 
   $urlRouterProvider.otherwise('/app/home');
