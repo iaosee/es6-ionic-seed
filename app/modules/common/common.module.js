@@ -1,7 +1,7 @@
 import CommonController from "./common.controller";
+import routerConfig     from "./router.config";
+import run              from "./run";
 
-import routerConfig from "./router.config";
-import run from "./run";
 
 export default angular
   .module('app.common', [])

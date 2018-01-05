@@ -1,6 +1,6 @@
 import commonModule from "./modules/common/common.module";
 import globalModule from "./modules/global/global.module";
-import homeModule from "./modules/home/home.module";
+import homeModule   from "./modules/home/home.module";
 
 import "./manifest.json";
 import "./style/app.scss";
@@ -15,7 +15,4 @@ angular.module('app', [
   commonModule,
   globalModule,
   homeModule,
-])
-  .run(['$ionicHistory', '$ocLazyLoad', function ($ionicHistory, $ocLazyLoad) {
-    $ocLazyLoad;
-  }]);
+]);
