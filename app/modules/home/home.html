@@ -1,5 +1,5 @@
 <ion-view view-title="Playlists">
-  <ion-content>
+  <ion-content class="home">
     <ion-list>
       <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
         {{playlist.title}}
@@ -10,6 +10,12 @@
       <h1>Hello Angular, Ionic</h1>
 
       <h2 ng-bind="home.controller"></h2>
+
+
+      <div class="padding">
+        
+      </div>
+
 
       <div class="list">
         <label class="item item-input">

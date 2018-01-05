@@ -1,5 +1,5 @@
 {
-  "name": "es6-ng1",
+  "name": "es6-ionic-one",
   "version": "0.0.1",
   "description": "An Ionic project",
   "scripts": {
@@ -34,6 +34,7 @@
     "webpack-dev-server": "^2.9.7"
   },
   "dependencies": {
-    "babel-runtime": "^6.26.0"
+    "babel-runtime": "^6.26.0",
+    "oclazyload": "^1.1.0"
   }
 }

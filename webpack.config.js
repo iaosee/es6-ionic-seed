@@ -26,7 +26,7 @@ module.exports = {
 		vendor_js: [
 			PATHS.vendor + '/ionic/js/ionic.bundle.js',
 			PATHS.vendor + '/swiper/js/swiper.js',
-
+			'oclazyload',
 			// PATHS.vendor + '/ionic/css/ionic.css',
 			// PATHS.vendor + '/swiper/css/swiper.css',
 		],
