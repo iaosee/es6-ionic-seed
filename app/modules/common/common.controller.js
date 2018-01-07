@@ -5,7 +5,7 @@ export default class CommonController {
   controller = 'CommonController';
   loginData = {};
 
-  constructor($scope) {
+  constructor($scope, $timeout, $ionicModal) {
 
     [this.$scope,
     this.$timeout,

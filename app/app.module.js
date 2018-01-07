@@ -10,9 +10,10 @@ console.log(globalModule);
 console.log(homeModule);
 
 angular.module('app', [
-  'ionic',
+  'ionic', 
   'oc.lazyLoad',
   commonModule,
   globalModule,
   homeModule,
 ]);
+

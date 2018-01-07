@@ -4,18 +4,19 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
+const isProd = !!process.env.NODE_ENV;
+
 const ROOT_PATH = __dirname;
 const PATHS = {
 	src: ROOT_PATH + '/app',
-	build: ROOT_PATH + '/build',
+	build: ROOT_PATH + (isProd ? '/www' : '/build'),
 	vendor: ROOT_PATH + '/app/vendor',
 };
 
-let isProd = !!process.env.NODE_ENV;
-
-let plugins = renderPlugins();
+const plugins = renderPlugins();
 isProd && plugins.push(new webpack.optimize.UglifyJsPlugin());
 !isProd && plugins.push(new webpack.HotModuleReplacementPlugin());
+
 
 module.exports = {
 	// devtool: 'source-map',
