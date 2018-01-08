@@ -38,7 +38,7 @@ module.exports = {
 
   output: {
     path: PATHS.build,
-    publicPath: '/',
+    publicPath: 'build/',
     filename: 'script/[name].bundle.[hash].js',
   },
 
@@ -102,19 +102,19 @@ module.exports = {
         test: /\.(png|jpeg|jpg|gif|svg|webp)$/,
         use: [
           {
-            loader: 'file-loader',
-            options: { name: '[name].[hash].[ext]', outputPath: 'images/' },
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: { bypassOnDebug: true },
-          },
-          {
             loader: 'url-loader',
             options: {
               limit: 8192,
               outputPath: 'images/'
             }
+          },
+          // {
+          //   loader: 'file-loader',
+          //   options: { name: '[name].[hash].[ext]', outputPath: 'images/' },
+          // },
+          {
+            loader: 'image-webpack-loader',
+            options: { bypassOnDebug: true },
           },
         ],
       },
