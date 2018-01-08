@@ -10,10 +10,11 @@ console.log(globalModule);
 console.log(homeModule);
 
 angular.module('app', [
-  'ionic', 
+  'ionic',
   'oc.lazyLoad',
   commonModule,
   globalModule,
   homeModule,
 ]);
 
+// 添加 image文件夹，加载img

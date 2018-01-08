@@ -1,8 +1,16 @@
 {
-    "presets": [
-        "latest",
-        "es2015",
-        "stage-0"
-    ],
-    "plugins": []
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "chrome": 52,
+          "browsers": [
+            "last 2 versions",
+            "safari 7"
+          ]
+        }
+      }
+    ]
+  ]
 }
