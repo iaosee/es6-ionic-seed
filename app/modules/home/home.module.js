@@ -1,13 +1,14 @@
 
-import homeRouterConfig from "./home-router.config";
-import HomeController   from "./home.controller";
+import homeRouterConfig from './home-router.config';
+import HomeController   from './home.controller';
+import HomeBanner       from './components/home-banner.component';
 
-import "./home.html";
-import "./home.scss";
+import './home.html';
+import './home.scss';
 
 export default angular
   .module('app.home', [])
   .controller('HomeController', HomeController)
-  .component('homeBanner', () => new Object())
+  .directive('homeBanner', () => new HomeBanner())
   .config(homeRouterConfig)
   .name;

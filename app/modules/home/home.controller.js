@@ -6,8 +6,9 @@ export default class HomeController {
   controller = 'HomeController';
   name = 'XiaoFeng';
 
-  constructor($scope, $http, TestService) {
-    // console.log('Hello, I am HomeController');
+  constructor($scope, $http, $ionicHistory, $ocLazyLoad, TestService) {
+
+    console.log('Hello, I am HomeController');
 
     [ this.$scope,
       this.$http,
@@ -15,13 +16,11 @@ export default class HomeController {
       this.$ocLazyLoad,
       this.TestService,
     ] = [...arguments];
-
-    console.log(this.controller);
-
+  
     // this.$scope.$on('ocLazyLoad.moduleLoaded', event => {
     //   console.log(event);
     // });
-
+    
   }
 
   sayHello() {

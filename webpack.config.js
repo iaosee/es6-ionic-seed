@@ -7,7 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ROOT_PATH = __dirname;
 const PATHS = {
   src: ROOT_PATH + '/app',
-  build: ROOT_PATH + '/build',
+  build: ROOT_PATH + '/www',
   vendor: ROOT_PATH + '/app/vendor',
 };
 
@@ -38,7 +38,7 @@ module.exports = {
 
   output: {
     path: PATHS.build,
-    // publicPath: '/build/',
+    publicPath: '/www/',
     filename: 'script/[name].bundle.[hash].js',
   },
 

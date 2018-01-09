@@ -12,12 +12,10 @@ export default class CommonController {
       this.$ionicModal,
     ] = [...arguments];
 
-    this.initModal();
+    this._initModal();
   }
 
-  initModal() {
-
-    console.log(this.$ionicModal);
+  _initModal() {
 
     let scope = this.$scope.$new();
     scope.doLogin = this.doLogin.bind(this);
@@ -42,6 +40,7 @@ export default class CommonController {
   doLogin() {
 
     console.log('Doing login', this.loginData);
+    // do something
     this.$timeout(() => {
       this.closeLogin();
     }, 1000);
