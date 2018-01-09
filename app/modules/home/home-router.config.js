@@ -6,7 +6,7 @@ export default function homeRouterConfig($stateProvider, $urlRouterProvider) {
     .state('app.home', {
       url: '/home',
       views: {
-        'menuContent': {
+        'home': {
           template: require('./home.html'),
           controller: 'HomeController',
           controllerAs: 'vm',

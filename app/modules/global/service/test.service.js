@@ -20,4 +20,5 @@ export default class TestService {
   getDate() {
     return this.$filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
   }
+
 }

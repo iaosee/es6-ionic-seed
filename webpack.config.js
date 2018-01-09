@@ -22,7 +22,7 @@ module.exports = {
   devtool: isProd ? false : 'source-map',
 
   entry: {
-    app: PATHS.src + '/app.module.js',
+    app: PATHS.src + '/app.js',
     vendor_js: [
       PATHS.vendor + '/ionic/js/ionic.bundle.js',
       PATHS.vendor + '/swiper/js/swiper.js',
@@ -38,7 +38,7 @@ module.exports = {
 
   output: {
     path: PATHS.build,
-    publicPath: 'build/',
+    // publicPath: '/build/',
     filename: 'script/[name].bundle.[hash].js',
   },
 
@@ -125,7 +125,8 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: 'json-loader',
+        options: { name: '[name].[hash].[ext]' },
       },
     ]
   },

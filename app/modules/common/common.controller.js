@@ -7,9 +7,9 @@ export default class CommonController {
 
   constructor($scope) {
 
-    [this.$scope,
-    this.$timeout,
-    this.$ionicModal,
+    [ this.$scope,
+      this.$timeout,
+      this.$ionicModal,
     ] = [...arguments];
 
     this.initModal();
