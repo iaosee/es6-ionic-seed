@@ -1,20 +1,21 @@
 
+import ChatsService from "../global/service/chats.service";
+
+
 export default class ListController {
   static $inject = ['$scope', 'ChatsService'];
 
   chats = [];
 
   constructor($scope, ChatsService) {
-    console.log(ChatsService);
 
     [ this.$scope,
       this.ChatsService,
     ] = [...arguments];
 
-    console.log(ChatsService);
+    console.log(this.ChatsService)
 
-    this.chats = ChatsService.all();
-    console.log(ChatsService);
+    this.chats = this.ChatsService.all();
 
   }
 

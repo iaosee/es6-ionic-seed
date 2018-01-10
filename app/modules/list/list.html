@@ -2,7 +2,7 @@
   <ion-content class="list">
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right"
-                ng-repeat="item in vm.chats track by $index"
+                ng-repeat="item in vm.chats"
                 type="item-text-wrap"
                 href="#/tab/chats/{{item.id}}">
         <img ng-src="{{item.face}}">

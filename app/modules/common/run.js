@@ -1,8 +1,8 @@
 
 
-routerConfig.$inject = ['$ionicPlatform'];
+run.$inject = ['$ionicPlatform'];
 
-export default function routerConfig($ionicPlatform) {
+export default function run($ionicPlatform) {
 
   console.log('app running.');
 

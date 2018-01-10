@@ -1,10 +1,10 @@
 
 
 
-run.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+routerConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-export default function run($stateProvider, $urlRouterProvider, $locationProvider) {
-  $locationProvider.html5Mode(true);
+export default function routerConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+  // $locationProvider.html5Mode(true);
 
   $stateProvider
     .state('app', {
@@ -17,3 +17,4 @@ export default function run($stateProvider, $urlRouterProvider, $locationProvide
 
   $urlRouterProvider.otherwise('/app/home');
 }
+

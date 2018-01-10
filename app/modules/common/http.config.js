@@ -4,7 +4,7 @@ httpConfig.$inject = ['$httpProvider'];
 export default function httpConfig($httpProvider) {
 
   $httpProvider.defaults.headers.common = {
-
+    
   };
 
   $httpProvider.interceptors.push(['$q', 'authService',
