@@ -4,7 +4,7 @@
 run.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
 export default function run($stateProvider, $urlRouterProvider, $locationProvider) {
-  // $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(true);
 
   $stateProvider
     .state('app', {
