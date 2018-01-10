@@ -38,7 +38,8 @@ module.exports = {
 
   output: {
     path: PATHS.build,
-    publicPath: '/www/',
+    // publicPath: '/',
+    publicPath: isProd ? '' : '/www/',
     filename: 'script/[name].bundle.[hash].js',
   },
 
@@ -85,8 +86,9 @@ module.exports = {
       },
       {
         test: /\.s[c|a]ss/,
+        // reference <https://www.npmjs.com/package/extract-text-webpack-plugin>
         use: isProd
-          ? ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader'] })
+          ? ExtractTextPlugin.extract({ fallback: ['style-loader'], use: ['css-loader', 'sass-loader'], publicPath: '../' })
           : ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
@@ -144,7 +146,7 @@ function renderPlugins() {
     // new webpack.HotModuleReplacementPlugin(),    //热加载插件
     // new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor_js', 'vendor_css', 'manifest']
+      names: ['vendor_js', 'vendor_css']
     }),
     new ExtractTextPlugin({
       filename: 'style/[name].[hash].css',
