@@ -16,11 +16,11 @@ export default class HomeController {
       this.$ocLazyLoad,
       this.TestService,
     ] = [...arguments];
-  
+
     // this.$scope.$on('ocLazyLoad.moduleLoaded', event => {
     //   console.log(event);
     // });
-    
+
   }
 
   sayHello() {

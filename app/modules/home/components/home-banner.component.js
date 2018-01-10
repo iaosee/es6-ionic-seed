@@ -26,19 +26,19 @@ class HomeBannerController {
   }
 
   $onInit() {
-    console.log('onInit');
+    console.log('HomeBanner onInit');
   }
 
   $doCheck() {
-    console.log('doCheck');
+    console.log('HomeBanner doCheck');
   }
 
   $onDestroy() {
-    console.log('onDestroy');
+    console.log('HomeBanner onDestroy');
   }
 
   $postLink() {
-    console.log('postLink');
+    console.log('HomeBanner postLink');
   }
 
 }
