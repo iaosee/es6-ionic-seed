@@ -38,8 +38,7 @@ module.exports = {
 
   output: {
     path: PATHS.build,
-    // publicPath: '/',
-    publicPath: isProd ? '' : '/www/',
+    // publicPath: '/www/',
     filename: 'script/[name].bundle.[hash].js',
   },
 
