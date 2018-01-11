@@ -17,24 +17,29 @@
       <h2 ng-bind="vm.controller"></h2>
 
 
-      <div class="padding">
-
-      </div>
-
-
-      <div class="list">
-        <label class="item item-input">
-          <input type="text" placeholder="What's your name?" ng-model="vm.name">
-        </label>
-        <div class="item text-center" ng-if="vm.name">
-          <p>Hello
-            <span ng-bind="vm.name"></span>
-          </p>
-        </div>
+      <label class="item item-input">
+        <input type="text" placeholder="What's your name?" ng-model="vm.name">
+      </label>
+      <div class="item text-center" ng-if="vm.name">
+        <p>Hello
+          <span ng-bind="vm.name"></span>
+        </p>
       </div>
 
       <div class="my-box">
         <div class="inner-box"></div>
+      </div>
+
+
+      <div class="list">
+        <a class="item item-avatar"
+           target="_blank"
+           ng-repeat="item in vm.dataList track by $index"
+           ng-href="{{item.url}}">
+          <img ng-src="{{'http:'+item.member.avatar_normal}}">
+          <h2 ng-bind="item.title"></h2>
+          <p ng-bind="item.content"></p>
+        </a>
       </div>
 
 

@@ -5,6 +5,7 @@ export default class HomeController {
 
   controller = 'HomeController';
   name = 'XiaoFeng';
+  dataList = [];
 
   constructor($scope, $http, $ionicHistory, $ocLazyLoad, TestService) {
 
@@ -21,6 +22,18 @@ export default class HomeController {
     //   console.log(event);
     // });
 
+    $http.get('https://www.v2ex.com/api/topics/hot.json', {
+      name: 'xiaofneg',
+      age: 20,
+      date: new Date().getTime()
+    })
+      .then((response) => {
+        this.dataList = response.data;
+        console.log(this.dataList);
+      })
+      .catch((response) => {
+        console.log(response);
+      });
   }
 
   sayHello() {
