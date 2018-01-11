@@ -34,6 +34,7 @@ export default class HomeController {
       .catch((response) => {
         console.log(response);
       });
+
   }
 
   sayHello() {
