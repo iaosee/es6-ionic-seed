@@ -7,20 +7,29 @@ export default class ToolsService {
 
   }
 
-  functionHook() {
-
-    Function.prototype.before = function (fn) {
-      var _self = this;
-      return function () {
-        if (fn.apply(this, arguments) === false) return false;
-        return _self.apply(this, arguments);
-      }
+  functionBeforeHook(fn, hook) {
+    return function () {
+      if (hook.apply(this, arguments) === false) return false;
+      return fn.apply(this, arguments);
     }
-
-    func = func.before(function (response) {
-
-    });
   }
+
+  functionAfterHook(fn, hook) {
+    return function () {
+      if (fn.apply(this, arguments) === false) return false;
+      return hook.apply(this, arguments);
+    }
+  }
+
+/*
+  Function.prototype.before = function (fn) {
+    var _self = this;
+    return function () {
+      if (fn.apply(this, arguments) === false) return false;
+      return _self.apply(this, arguments);
+    }
+  }
+*/
 
   objKeysToLower(origin) {
     if (!origin) {
@@ -33,7 +42,6 @@ export default class ToolsService {
     let target, newKey;
 
     if (angular.isArray(origin)) {
-      console.log(objKeysToLower);
       target = [];
       origin.forEach((arrayItem) => {
         target.push(this.objKeysToLower(arrayItem));
@@ -44,9 +52,9 @@ export default class ToolsService {
       Object.keys(origin).forEach((objectKey) => {
         newKey = objectKey[0].toLowerCase() + objectKey.slice(1);
 
-        typeof origin[objectKey] === 'object'
-          ? target[newKey] = this.objKeysToLower(origin[objectKey])
-          : target[newKey] = origin[objectKey];
+        target[newKey] = typeof origin[objectKey] === 'object'
+                       ? this.objKeysToLower(origin[objectKey])
+                       : target[newKey] = origin[objectKey];
       });
     }
 

@@ -1,13 +1,13 @@
 
 export default class HomeController {
 
-  static $inject = ['$scope', '$http', '$ionicHistory', '$ocLazyLoad', 'TestService'];
+  static $inject = ['$scope', '$http', '$ionicHistory', '$ocLazyLoad', 'TestService', 'ToolsService'];
 
   controller = 'HomeController';
   name = 'XiaoFeng';
   dataList = [];
 
-  constructor($scope, $http, $ionicHistory, $ocLazyLoad, TestService) {
+  constructor($scope, $http, $ionicHistory, $ocLazyLoad, TestService, ToolsService) {
 
     console.log('Hello, I am HomeController');
 
@@ -16,6 +16,7 @@ export default class HomeController {
       this.$ionicHistory,
       this.$ocLazyLoad,
       this.TestService,
+      this.ToolsService,
     ] = [...arguments];
 
     // this.$scope.$on('ocLazyLoad.moduleLoaded', event => {
@@ -34,6 +35,19 @@ export default class HomeController {
       .catch((response) => {
         console.log(response);
       });
+
+    let retFn = this.ToolsService
+      .functionBeforeHook(this.sayHello.bind(this), () => {
+        console.log('before');
+      });
+
+    retFn = this.ToolsService
+      .functionAfterHook(retFn, () => {
+        console.log('after');
+        return 'a';
+      });
+    
+    retFn();
 
   }
 
