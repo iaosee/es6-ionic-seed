@@ -31,6 +31,17 @@ export default class ToolsService {
   }
 */
 
+  throttle (fn, delay) {
+    let timer = null;
+    return () => {
+      var context = this, args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        fn.apply(context, args);
+      }, delay);
+    }
+  }
+
   objKeysToLower(origin) {
     if (!origin) {
       return origin;
