@@ -46,7 +46,7 @@ export default class HomeController {
         console.log('after');
         return 'a';
       });
-    
+
     retFn();
 
   }
