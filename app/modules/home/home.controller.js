@@ -23,18 +23,51 @@ export default class HomeController {
     //   console.log(event);
     // });
 
-    $http.get('https://www.v2ex.com/api/topics/hot.json', {
+  }
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter');
+  }
+
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter');
+  }
+
+  ionViewWillLeave() {
+    console.log('ionViewWillLeave');
+  }
+
+  ionViewDidLeave() {
+    console.log('ionViewDidLeave');
+  }
+
+  $onInit() {
+    console.log('HomeController onInit');
+  }
+
+  $doCheck() {
+    console.log('HomeController doCheck');
+  }
+
+  $onDestroy() {
+    console.log('HomeController onDestroy');
+  }
+
+  $postLink() {
+    console.log('HomeController postLink');
+  }
+
+
+  async getDataList() {
+
+    const response = await $http.get('https://www.v2ex.com/api/topics/hot.json', {
       name: 'xiaofneg',
       age: 20,
       date: new Date().getTime()
-    })
-      .then((response) => {
-        this.dataList = response.data;
-        console.log(this.dataList);
-      })
-      .catch((response) => {
-        console.log(response);
-      });
+    });
+
+    this.dataList = response.data;
+    console.log(this.dataList);
 
     let retFn = this.ToolsService
       .functionBeforeHook(this.sayHello.bind(this), () => {
@@ -48,7 +81,6 @@ export default class HomeController {
       });
 
     retFn();
-
   }
 
   sayHello() {
