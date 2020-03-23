@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 const ROOT_PATH = __dirname;
@@ -195,5 +196,10 @@ function renderPlugins() {
       verbose: true,
       dry: false
     }),
+    new CopyWebpackPlugin([
+      { from: 'app/manifest.json' },
+      { from: 'app/images/favicon.ico' },
+      { from: 'resources/icon.png' },
+    ]),
   ];
 }

@@ -3,7 +3,6 @@ import homeRouterConfig from './home-router.config';
 import HomeController   from './home.controller';
 import HomeBanner       from './components/home-banner.component';
 
-import './home.html';
 import './home.scss';
 
 export default angular

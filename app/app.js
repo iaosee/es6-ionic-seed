@@ -1,7 +1,7 @@
 import './vendor/ionic/js/ionic.bundle.js';
-import './vendor/swiper/js/swiper.js';
 import './vendor/ionic/css/ionic.css';
-import './vendor/swiper/css/swiper.css';
+
+import 'swiper';
 import 'oclazyload';
 
 import './manifest.json';
